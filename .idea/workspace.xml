@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f17e0f6-d905-48b0-8f56-d7eb5235de34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/socket/SocketServerRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/datagram/DatagramRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/datagram/DatagramServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/socket/SocketRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/socket/SocketRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,33 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.SocketRunner">
+  <component name="RunManager" selected="Application.DatagramRunner">
+    <configuration name="DatagramRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="servlets.datagram.DatagramRunner" />
+      <module name="Servlets.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="servlets.datagram.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatagramServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="servlets.datagram.DatagramServer" />
+      <module name="Servlets.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="servlets.datagram.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SocketRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="servlets.socket.SocketRunner" />
       <module name="Servlets.main" />
@@ -80,6 +106,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DatagramRunner" />
+        <item itemvalue="Application.DatagramServer" />
         <item itemvalue="Application.SocketServerRunner" />
         <item itemvalue="Application.SocketRunner" />
       </list>
@@ -93,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695476456950</updated>
-      <workItem from="1695476457873" duration="4442000" />
+      <workItem from="1695476457873" duration="6037000" />
     </task>
     <servers />
   </component>
