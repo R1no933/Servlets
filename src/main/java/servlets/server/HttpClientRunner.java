@@ -21,7 +21,7 @@ public class HttpClientRunner {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:9000"))
                 .header("content-type", "application/json")
-                .POST(ofFile(Path.of("resources", "ExampleJson.json")))
+                .POST(ofFile(Path.of("resources", "additional_files/ExampleJson.json")))
                 .build();
 
         CompletableFuture<HttpResponse<String>> response1 = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
