@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f17e0f6-d905-48b0-8f56-d7eb5235de34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/server/HttpClientRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servlets/server/HttpServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ExampleHtml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ExampleJson.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/server/HttpClientRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/server/HttpClientRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/server/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/server/HttpServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +140,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695476456950</updated>
-      <workItem from="1695476457873" duration="11076000" />
+      <workItem from="1695476457873" duration="11679000" />
     </task>
     <servers />
   </component>
