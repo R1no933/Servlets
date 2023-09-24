@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.Map;
 
 @WebServlet("/firstServlet")
 public class FirstServlet extends HttpServlet {
@@ -21,6 +22,10 @@ public class FirstServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String paramValue = req.getParameter("param");
+        Enumeration<String> parameterNames = req.getParameterNames();
+        System.out.println();
+
         Enumeration<String> headerNames = req.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String header = headerNames.nextElement();
@@ -32,6 +37,12 @@ public class FirstServlet extends HttpServlet {
         try (PrintWriter writer = resp.getWriter()) {
             writer.write("Hello from first servlet");
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        System.out.println(parameterMap);
     }
 
     @Override
