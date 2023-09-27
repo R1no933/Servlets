@@ -41,7 +41,8 @@ public class TicketDao implements Dao<Long, TicketEntity> {
     }
 
     private TicketEntity buildTicket(ResultSet result) throws SQLException {
-        return new TicketEntity(
+        TicketEntity ticketEntity;
+        ticketEntity = new TicketEntity(
                 result.getObject("id", Long.class),
                 result.getObject("passenger_no", String.class),
                 result.getObject("passenger_name", String.class),
@@ -49,6 +50,7 @@ public class TicketDao implements Dao<Long, TicketEntity> {
                 result.getObject("seat_no", String.class),
                 result.getObject("cost", BigDecimal.class)
         );
+        return ticketEntity;
     }
 
     @Override

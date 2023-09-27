@@ -2,9 +2,8 @@ package servlets.service;
 
 import servlets.dao.TicketDao;
 import servlets.dto.TicketDto;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static java.util.stream.Collectors.*;
 
@@ -18,11 +17,11 @@ public class TicketService {
     public List<TicketDto> findByFlightId(Long flightId) {
         return ticketDao.findByFlightId(flightId)
                 .stream()
-                .map(ticketEntity -> new TicketDto(
-                        ticketEntity.getId(),
-                        ticketEntity.getFlightId(),
-                        ticketEntity.getSeatNo()
-                ))
+                .map(ticketEntity -> TicketDto.builder()
+                        .id(ticketEntity.getId())
+                        .flightId(ticketEntity.getFlightId())
+                        .seatNo(ticketEntity.getSeatNo())
+                        .build())
                 .collect(toList());
     }
 
