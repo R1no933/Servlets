@@ -11,15 +11,15 @@ public final class PropertiesUtil {
         loadProperies();
     }
 
+    private PropertiesUtil() {}
+
     private static void loadProperies() {
-        try (InputStream inputStream = Properties.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream inputStream = PropertiesUtil.class.getClassLoader().getResourceAsStream("application.properties")) {
             PROPERTIES.load(inputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-    private PropertiesUtil() {}
 
     public static String getProperties(String key) {
         return PROPERTIES.getProperty(key);

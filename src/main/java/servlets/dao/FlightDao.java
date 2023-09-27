@@ -5,12 +5,16 @@ import servlets.entity.FlightStatus;
 import servlets.util.ConnectionManager;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class FlightDao implements Dao<Long, FlightEntity> {
+
+    private static final FlightDao INSTANCE = new FlightDao();
+
+    private FlightDao() {}
+
     private static final String SQL_FIND_ALL = """
             SELECT * FROM flight
             """;
@@ -53,6 +57,10 @@ public class FlightDao implements Dao<Long, FlightEntity> {
         return null;
     }
 
+    public static FlightDao getInstance() {
+        return INSTANCE;
+    }
+
     private FlightEntity buildFlight(ResultSet result) throws SQLException {
         return new FlightEntity(
                 result.getObject("id", Long.class),
@@ -61,7 +69,7 @@ public class FlightDao implements Dao<Long, FlightEntity> {
                 result.getObject("departure_airport_code", String.class),
                 result.getObject("arrival_date", Timestamp.class).toLocalDateTime(),
                 result.getObject("arrival_airport_code", String.class),
-                result.getObject("aircraft_id", Long.class),
+                result.getObject("aircraft_id", Integer.class),
                 FlightStatus.valueOf(result.getObject("status", String.class))
         );
     }

@@ -10,7 +10,7 @@ public class FlightEntity {
     private String departureAirportCode;
     private LocalDateTime arrivalDate;
     private String arrivalAirportCode;
-    private Long aircraftId;
+    private Integer aircraftId;
     private FlightStatus status;
 
     public FlightEntity(Long id, String flightNo,
@@ -18,7 +18,7 @@ public class FlightEntity {
                         String departureAirportCode,
                         LocalDateTime arrivalDate,
                         String arrivalAirportCode,
-                        Long aircraftId,
+                        Integer aircraftId,
                         FlightStatus status) {
         this.id = id;
         this.flightNo = flightNo;
@@ -78,11 +78,11 @@ public class FlightEntity {
         this.arrivalAirportCode = arrivalAirportCode;
     }
 
-    public Long getAircraftId() {
+    public Integer getAircraftId() {
         return aircraftId;
     }
 
-    public void setAircraftId(Long aircraftId) {
+    public void setAircraftId(Integer aircraftId) {
         this.aircraftId = aircraftId;
     }
 
