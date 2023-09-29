@@ -10,7 +10,7 @@
     <ul>
         <c:forEach var="flight" items="${requestScope.flights}">
             <li>
-                <a href="${pageContext.request.contextPath}/tickets?flightId="${flight.id}>${flight.description}</a>
+                <a href="${pageContext.request.contextPath}/tickets?flightId=${flight.id}">${flight.description}</a>
             </li>
         </c:forEach>
     </ul>

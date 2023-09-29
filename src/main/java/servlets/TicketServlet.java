@@ -19,9 +19,8 @@ public class TicketServlet extends HttpServlet {
     private final TicketService ticketService = TicketService.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String flightId = (req.getParameter("flightId"));
-        Long longFlightId = parseLong(flightId);
-        req.setAttribute("tickets", ticketService.findByFlightId(longFlightId));
+        Long flightId = Long.valueOf(req.getParameter("flightId"));
+        req.setAttribute("tickets", ticketService.findByFlightId(flightId));
 
         req.getRequestDispatcher(JspHelper.getPath("tickets"))
                 .forward(req, resp);
