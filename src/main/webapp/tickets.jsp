@@ -1,7 +1,7 @@
 <%@ page import="servlets.service.TicketService" %>
 <%@ page import="servlets.dto.TicketDto" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Title</title>
