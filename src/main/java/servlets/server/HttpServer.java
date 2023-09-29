@@ -41,7 +41,7 @@ public class HttpServer {
             System.out.println("Request: " + new String(inputStream.readNBytes(400)));
 
             //response handler
-            byte[] body = Files.readAllBytes(Path.of("resources", "ExampleHtml.html"));
+            byte[] body = Files.readAllBytes(Path.of("resources", "additional_files/ExampleHtml.html"));
             String headers = """
                     HTTP/1.1 200 OK
                     content-type: text/html
