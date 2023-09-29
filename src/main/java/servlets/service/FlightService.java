@@ -4,7 +4,6 @@ import servlets.dao.FlightDao;
 import servlets.dto.FlightDto;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -12,9 +11,9 @@ public class FlightService {
 
     private static final FlightService INSTANCE = new FlightService();
 
-    private FlightService() {}
-
     private final FlightDao flightDao = FlightDao.getInstance();
+
+    private FlightService() {}
 
     public List<FlightDto> flightAll() {
         return flightDao.findAll().stream()
@@ -22,8 +21,8 @@ public class FlightService {
                         .id(flightEntity.getId())
                         .description(
                            """
-                                %s -> %s : %s
-                           """.formatted(
+                                ID: %d - %s -> %s : %s
+                           """.formatted(flightEntity.getId(),
                                 flightEntity.getDepartureAirportCode(),
                                 flightEntity.getArrivalAirportCode(),
                                 flightEntity.getStatus().toString()
