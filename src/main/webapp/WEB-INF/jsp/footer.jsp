@@ -1,2 +1,2 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<h1>Footer Подвал сайта</h1>
+<h1>Footer</h1>
