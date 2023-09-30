@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import servlets.dto.FlightDto;
 import servlets.service.FlightService;
+import servlets.util.JspHelper;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,25 +16,14 @@ import java.nio.charset.StandardCharsets;
 @WebServlet("/flights")
 public class FlightServlet extends HttpServlet {
 
-    private final FlightService service = FlightService.getInstance();
+    private final FlightService flightService = FlightService.getInstance();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        req.setAttribute("flights", flightService.flightAll());
 
-        try (PrintWriter writer = resp.getWriter()) {
-            writer.write("<h1>List of flights:</h1>");
-            writer.write("<ul>");
-            service.flightAll().forEach(flightDto -> {
-                writer.write("""
-                        <li>
-                            <a href="/tickets?flightId=%d">%s
-                        </li>
-                        """.formatted(flightDto.getId(), flightDto.getDescription()));
-
-            });
-            writer.write("</ul>");
-        }
+        req.getRequestDispatcher(JspHelper.getPath("flights"))
+                        .forward(req, resp);
     }
 }
+
