@@ -70,7 +70,6 @@ public class TicketDao implements Dao<Long, TicketEntity> {
 
     @Override
     public void update(TicketEntity entity) {
-
     }
 
     @Override
