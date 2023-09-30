@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 public class CreateUserMapper implements Mapper<CreateUserDto, UserEntity> {
 
+    private static final String IMAGE_FOLDER = "users/";
     private static final CreateUserMapper INStANCE = new CreateUserMapper();
 
     @Override
@@ -21,6 +22,7 @@ public class CreateUserMapper implements Mapper<CreateUserDto, UserEntity> {
                 .password(object.getPassword())
                 .role(Role.valueOf(object.getRole()))
                 .gender(Gender.valueOf(object.getGender()))
+                .image(IMAGE_FOLDER + object.getImage().getSubmittedFileName())
                 .build();
     }
 

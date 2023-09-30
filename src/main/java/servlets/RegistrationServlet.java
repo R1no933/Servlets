@@ -1,10 +1,12 @@
 package servlets;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import servlets.dto.CreateUserDto;
 import servlets.entity.Gender;
 import servlets.entity.Role;
@@ -14,7 +16,7 @@ import servlets.util.JspHelper;
 
 import java.io.IOException;
 
-
+@MultipartConfig(fileSizeThreshold = 1024 * 1024)
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
@@ -31,6 +33,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
         CreateUserDto userDto = CreateUserDto.builder()
                 .username(req.getParameter("username"))
                 .birthday(req.getParameter("birthday"))
@@ -38,6 +41,7 @@ public class RegistrationServlet extends HttpServlet {
                 .password(req.getParameter("password"))
                 .role(req.getParameter("role"))
                 .gender(req.getParameter("gender"))
+                .image(req.getPart("image"))
                 .build();
         try {
             userService.create(userDto);

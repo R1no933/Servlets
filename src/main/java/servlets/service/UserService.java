@@ -1,5 +1,6 @@
 package servlets.service;
 
+import lombok.SneakyThrows;
 import servlets.dao.UserDao;
 import servlets.dto.CreateUserDto;
 import servlets.entity.UserEntity;
@@ -14,8 +15,10 @@ public class UserService {
     private final CreateUserValidator createUserValidator = CreateUserValidator.getInstance();
     private final UserDao userDao = UserDao.getInstance();
     private final CreateUserMapper userMapper = CreateUserMapper.getInstance();
+    private final ImageService imageService = ImageService.getInstance();
 
-    public Integer create(CreateUserDto createUserDto) {
+    @SneakyThrows
+    public Integer  create(CreateUserDto createUserDto) {
         ValidationResult validResult = createUserValidator.isValid(createUserDto);
 
         if (!validResult.isValid()) {
@@ -23,7 +26,9 @@ public class UserService {
         }
 
         UserEntity userEntity = userMapper.mapFrom(createUserDto);
+        imageService.upload(userEntity.getImage(), createUserDto.getImage().getInputStream());
         userDao.save(userEntity);
+
         return userEntity.getId();
     }
 

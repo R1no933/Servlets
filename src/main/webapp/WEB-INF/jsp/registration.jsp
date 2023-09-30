@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="${pageContext.request.contextPath}/registration" method="post">
+    <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
         <label for="username">
             Username:
             <input type="text" name="username" id="username">
@@ -33,7 +33,13 @@
         <c:forEach var="gender" items="${requestScope.genders}">
             <input type="radio" name="gender" value="${gender}">${gender}
         </c:forEach>
-        <br><br>
+        <br>
+        <label for="image">
+            Avatar:
+            <input type="file" name="image" id="image">
+        </label>
+        <br>
+        <br>
         <button type="submit">Registration</button>
         <c:if test="${not empty requestScope.errors}">
             <div style="color: red">
