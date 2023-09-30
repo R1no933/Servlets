@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+
+    <img src="${pageContext.request.contextPath}/images/users/Снимок%20экрана%202023-09-04%20в%2021.34.50.png" alt="Avatar">
+
     <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
         <label for="username">
             Username:
